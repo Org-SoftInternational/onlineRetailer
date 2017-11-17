@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>onlineRetailer登陆</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<script src="../js/angular.js"></script>
+<script src="../js/login.js"></script>
+</head>
+<body ng-app="onlineLogin" ng-controller="loginCtrl">
+	<div>
+	   <h1 style="text-align:center">Login</h1>
+	   <div style="text-align:center">name:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type="text" ng-model="name" /></div>
+	   <div style="text-align:center">password: <input type="text" ng-model="password" /></div>
+	   <br/>
+	   <div style="text-align:center"><button ng-click="login()">登陆</button></div>
+	   <br/>
+	   <div style="text-align:center"><input type="text" ng-model="result" /></div>
+	</div>
+	
+</body>
+</html>
