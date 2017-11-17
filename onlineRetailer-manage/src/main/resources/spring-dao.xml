@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xsi:schemaLocation="
+			http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+			http://www.springframework.org/schema/context  http://www.springframework.org/schema/context/spring-context.xsd 
+			http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd
+            http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd ">
+	
+	<!-- 加载配置文件 -->
+	<context:property-placeholder location="classpath:jdbc.properties"/>
+
+	<!-- 数据库连接池 --> 
+  	<bean id = "dataSource" class = "com.alibaba.druid.pool.DruidDataSource" init-method="init" destroy-method = "close" >    
+       <property name = "url" value = "${jdbcUrl}" />
+       <property name = "username" value = "${jdbcUsername}" />
+       <property name = "password" value = "${jdbcPassword}" />
+       <property name = "driverClassName" value = "${jdbcDriverClassName}" />
+       <property name = "maxActive" value = "${jdbcMaxActive}" />
+       <property name = "initialSize" value = "${jdbcInitialSize}" />
+       <property name = "maxWait" value = "${jdbcMaxWait}" />
+       <property name = "minIdle" value = "1" />
+       <property name = "timeBetweenEvictionRunsMillis" value ="60000" />  
+       <property name = "minEvictableIdleTimeMillis" value ="300000" />    
+       <property name = "validationQuery" value = "SELECT 1" />
+       <property name = "testWhileIdle" value = "true" />
+       <property name = "testOnBorrow" value = "false" />
+       <property name = "testOnReturn" value = "false" />   
+	   <property name="poolPreparedStatements" value="true" />  
+	   <property name="maxPoolPreparedStatementPerConnectionSize" value="20" />  
+ 	 </bean>
+
+	<!-- SqlSession的工厂类 -->
+	<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+		<property name="configLocation" value="mapper/mapper-config.xml" />
+		<property name="mapperLocations" value="mapper/*Dao.xml" />
+		<property name="dataSource" ref="dataSource" />
+	</bean>
+	
+	<!-- 将dao层接口自动注入spring -->
+	<bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
+		<property name="basePackage" value="cn.github.onlineRetailer.dao" />
+        <property name="sqlSessionFactoryBeanName" value="sqlSessionFactory" />
+	</bean>
+
+    <!--事务管理-->
+    <tx:annotation-driven transaction-manager="transactionManager"/>
+    <bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+        <property name="dataSource" ref="dataSource" />
+    </bean>
+    
+</beans>  
