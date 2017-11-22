@@ -1,5 +1,6 @@
 package cn.github.onlineRetailer.entity;
 
+import java.io.Serializable;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -13,8 +14,9 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class User {
+public class User implements Serializable{
     
+    private static final long serialVersionUID = 3213414692028902794L;
     private String id;
     private String name;
     private String password;
