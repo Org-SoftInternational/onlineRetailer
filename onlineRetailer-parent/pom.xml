@@ -22,7 +22,6 @@
 		<jstl.version>1.2</jstl.version>
 		<freemarker.version>2.3.23</freemarker.version>
 		<jackson.version>2.5.4</jackson.version>
-		<jacksonmap.version>1.9.4</jacksonmap.version>
 		<!-- 日志相关 -->
 		<slf4j.version>1.7.7</slf4j.version>
 		<!-- servlet相关 -->
@@ -34,9 +33,10 @@
 		<dubbo.version>2.5.3</dubbo.version>
 		<zookeeper.version>3.4.7</zookeeper.version>
 		<zkclient.version>0.1</zkclient.version>
+		<javassist.version>3.20.0-GA</javassist.version>
 
 		<lombok.version>1.16.18</lombok.version>
-
+		
 		<onlineRetailer-common.version>0.0.1-SNAPSHOT</onlineRetailer-common.version>
 	</properties>
 
@@ -47,11 +47,6 @@
 			<groupId>com.fasterxml.jackson.core</groupId>
 			<artifactId>jackson-databind</artifactId>
 			<version>${jackson.version}</version>
-		</dependency>
-		<dependency>
-			<groupId>org.codehaus.jackson</groupId>
-			<artifactId>jackson-mapper-asl</artifactId>
-			<version>${jacksonmap.version}</version>
 		</dependency>
 		<!-- 单元测试 -->
 		<dependency>
@@ -65,6 +60,7 @@
 			<artifactId>slf4j-log4j12</artifactId>
 			<version>${slf4j.version}</version>
 		</dependency>
+
 
 		<!-- mysql驱动 -->
 		<dependency>
@@ -85,7 +81,7 @@
 			<version>${mybatis.version}</version>
 		</dependency>
 
-		<!-- mybatis的分页插件 -->
+		<!-- mybatis的分页插件  -->
 		<dependency>
 			<groupId>com.github.pagehelper</groupId>
 			<artifactId>pagehelper</artifactId>
@@ -141,19 +137,25 @@
 			<artifactId>spring-test</artifactId>
 			<version>${spring.version}</version>
 		</dependency>
-
+		
 		<!-- freemarker相关 -->
 		<dependency>
 			<groupId>org.freemarker</groupId>
 			<artifactId>freemarker</artifactId>
 			<version>${freemarker.version}</version>
 		</dependency>
-
+		
 		<!-- dubbo相关 -->
 		<dependency>
 			<groupId>com.alibaba</groupId>
 			<artifactId>dubbo</artifactId>
 			<version>${dubbo.version}</version>
+			<exclusions>
+				<exclusion>
+					<groupId>org.springframework</groupId>
+					<artifactId>spring</artifactId>
+				</exclusion>
+			</exclusions>
 		</dependency>
 		<dependency>
 			<groupId>org.apache.zookeeper</groupId>
@@ -165,18 +167,24 @@
 			<artifactId>zkclient</artifactId>
 			<version>${zkclient.version}</version>
 		</dependency>
+		<!-- dubbo zk依赖 -->
+		<dependency>
+			<groupId>org.javassist</groupId>
+			<artifactId>javassist</artifactId>
+			<version>${javassist.version}</version>
+		</dependency>
 
 		<!-- lombok -->
 		<dependency>
-			<groupId>org.projectlombok</groupId>
-			<artifactId>lombok</artifactId>
-			<version>${lombok.version}</version>
+		    <groupId>org.projectlombok</groupId>
+		    <artifactId>lombok</artifactId>
+		    <version>${lombok.version}</version>
 		</dependency>
-
+		
 		<dependency>
-			<groupId>cn.github.onlineRetailer</groupId>
-			<artifactId>onlineRetailer-common</artifactId>
-			<version>${onlineRetailer-common.version}</version>
+		    <groupId>cn.github.onlineRetailer</groupId>
+		    <artifactId>onlineRetailer-common</artifactId>
+		    <version>${onlineRetailer-common.version}</version>
 		</dependency>
 
 	</dependencies>
@@ -205,26 +213,26 @@
 					<encoding>UTF-8</encoding>
 				</configuration>
 			</plugin>
-
+			
 			<!-- 用于生成jar的plugin -->
 			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-jar-plugin</artifactId>
-				<version>2.6</version>
-				<configuration>
-					<outputDirectory>${project.build.directory}/${project.artifactId}/webapps/${project.artifactId}/WEB-INF/lib</outputDirectory>
-					<archive>
-						<manifest>
-							<addClasspath>true</addClasspath>
-							<classpathPrefix>lib/</classpathPrefix>
-						</manifest>
-					</archive>
-					<excludes>
-						<exclude>*.xml</exclude>
-						<exclude>*.properties</exclude>
-					</excludes>
-				</configuration>
-			</plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-jar-plugin</artifactId>
+                <version>2.6</version>
+                <configuration>
+                    <outputDirectory>${project.build.directory}/${project.artifactId}/webapps/${project.artifactId}/WEB-INF/lib</outputDirectory>
+                    <archive>
+                        <manifest>
+                            <addClasspath>true</addClasspath>
+                            <classpathPrefix>lib/</classpathPrefix>
+                        </manifest>
+                    </archive>
+                    <excludes>
+                        <exclude>*.xml</exclude>
+                        <exclude>*.properties</exclude>
+                    </excludes>
+                </configuration>
+            </plugin>
 
 		</plugins>
 	</build>
