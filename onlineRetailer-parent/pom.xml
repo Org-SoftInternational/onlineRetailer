@@ -34,7 +34,6 @@
 		<dubbo.version>2.5.3</dubbo.version>
 		<zookeeper.version>3.4.7</zookeeper.version>
 		<zkclient.version>0.1</zkclient.version>
-
 		<lombok.version>1.16.18</lombok.version>
 
 		<onlineRetailer-common.version>0.0.1-SNAPSHOT</onlineRetailer-common.version>
