@@ -1,5 +1,7 @@
 package cn.github.onlineRetailer;
 
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,11 +24,16 @@ public class UserDaoTest {
     @Autowired
     public UserDao userDao;
 
+	private static final Log log = LogFactory.getLog(UserDaoTest.class);
     @Test
     public void insertUserTest() {
         long id = (long) (Math.random() * 1000000l);
         User user = new User(Long.toString(id), "yangyu", "123", "1213536402@qq.com", "18351451741", "昆明");
         userDao.insertUser(user);
+        log.debug(user);
+        log.info(user);
+        log.warn(user);
+        log.error(user);
     }
 
 }

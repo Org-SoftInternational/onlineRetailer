@@ -5,6 +5,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import cn.github.onlineRetailer.entity.User;
+
 /**
  * @Description
  * @author disanmeng
@@ -17,8 +19,7 @@ public class LoginContoller {
 
     @RequestMapping(value = "/login")
     @ResponseBody
-    public String login(@RequestBody String name, @RequestBody String password) throws Exception {
-        String result = name + password;
-        return result;
+    public User login(@RequestBody User user) throws Exception {
+        return user;
     }
 }
