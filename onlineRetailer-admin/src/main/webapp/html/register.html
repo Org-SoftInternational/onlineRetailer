@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>onlineRetailer登陆</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<script src="../js/angular.js"></script>
+<script src="../js/register.js"></script>
+<link href="../css/bootstrap1.3.css" rel="stylesheet">
+<script src="../js/jquery1.11.js"></script>
+<script src="../js/bootstrap1.3.js"></script>
+</head>
+<body ng-app="onlineLogin" ng-controller="loginCtrl" style="background:url(../image/a.png)">
+	<div style="width:300px;text-align:center;margin:0 auto">
+	   <h1 style="text-align:center">注册用户</h1>
+		<div class="input-group">
+			<span class="input-group-addon" >用户名</span> <input
+				type="text" class="form-control" placeholder="Username" ng-model="name" aria-describedby="basic-addon1">
+		</div>
+		<br/>
+		<div class="input-group">
+			<span class="input-group-addon">&nbsp;密码&nbsp;&nbsp;</span> <input
+				type="text" class="form-control" placeholder="Password" ng-model="password">
+		</div><br/>
+		<div class="input-group">
+			<span class="input-group-addon">&nbsp;邮箱&nbsp;&nbsp;</span> <input
+				type="text" class="form-control" placeholder="Email" ng-model="email">
+		</div><br/>
+		<div class="input-group">
+			<span class="input-group-addon">&nbsp;地址&nbsp;&nbsp;</span> <input
+				type="text" class="form-control" placeholder="Address" ng-model="address">
+		</div><br/>
+		<div class="input-group">
+			<span class="input-group-addon">&nbsp;电话&nbsp;&nbsp;</span> <input
+				type="text" class="form-control" placeholder="PhoneNumber" ng-model="phone">
+		</div>
+		<br/>
+	   <div style="text-align:center"><button type="button" class="btn btn-success"ng-click="register()">注册</button></div>
+	   <br/>
+	   <div style="text-align:center"><input type="text" ng-model="result" /></div>
+	</div>
+	
+</body>
+</html>
