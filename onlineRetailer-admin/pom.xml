@@ -42,7 +42,7 @@
 				<targetPath>${project.build.directory}/${project.artifactId}/webapps/${project.artifactId}/WEB-INF/classes</targetPath>
 			</resource>
 			<resource>
-				<directory>src/main/resource</directory>
+				<directory>src/main/resources</directory>
 				<includes>
 					<include>**/*.*</include>
 				</includes>

@@ -213,26 +213,6 @@
 					<encoding>UTF-8</encoding>
 				</configuration>
 			</plugin>
-			
-			<!-- 用于生成jar的plugin -->
-			<plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-jar-plugin</artifactId>
-                <version>2.6</version>
-                <configuration>
-                    <outputDirectory>${project.build.directory}/${project.artifactId}/webapps/${project.artifactId}/WEB-INF/lib</outputDirectory>
-                    <archive>
-                        <manifest>
-                            <addClasspath>true</addClasspath>
-                            <classpathPrefix>lib/</classpathPrefix>
-                        </manifest>
-                    </archive>
-                    <excludes>
-                        <exclude>*.xml</exclude>
-                        <exclude>*.properties</exclude>
-                    </excludes>
-                </configuration>
-            </plugin>
 
 		</plugins>
 	</build>
