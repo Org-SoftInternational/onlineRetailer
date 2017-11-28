@@ -23,6 +23,7 @@
         </property>    
     </bean>    
         
+    <context:annotation-config/>
      <!-- 添加注解驱动 -->      
     <mvc:annotation-driven />    
     <mvc:default-servlet-handler/>    
