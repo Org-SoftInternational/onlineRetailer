@@ -1,0 +1,285 @@
+@charset "utf-8";
+/* CSS Document */
+
+* {
+/*清除所有的默认样式*/
+margin: 0;
+padding: 0;
+font-size: 12px;
+}
+
+body{
+	background-color: #F5F5F5;
+}
+
+.fixed_div {
+    position:fixed;
+    /*z-index:208;*/
+    /*bottom:20px;*/
+    right:0px;
+
+    width:40px;
+    height:100%;
+    border:1px solid;
+    background:#000000;
+}
+
+.sidebar {
+	/*position: relative;*/
+	width: 40px;
+	/*height: 600px;*/
+	/*border: 1px solid;*/
+	/*vertical-align: center;*/
+
+}
+
+.sidebar div {
+	width: 40px;
+}
+
+.sidebar_che {
+	height: 100px;
+	margin-top: 100px;
+}
+
+.sidebar_che p {
+	font-size: 15px;
+	font-family: 微软雅黑;
+	vertical-align: center;
+}
+
+.sidebar_xin {
+	height: 50px;
+}
+
+.sidebar_yuan {
+	height: 50px;
+}
+
+.sidebar_cong {
+	height: 50px;
+}
+
+.sidebar_zhong {
+	height: 50px;
+}
+
+.sidebar_bi {
+	height: 50px;
+	margin-top: 100px;
+}
+
+.sidebar_erweima {
+	height: 50px;
+}
+
+.sidebar_top {
+	height: 50px;
+}
+
+.sidebar image{
+	width: 30px;
+	height: 30px;
+	margin-top: 100px;
+
+	/*position:;*/
+}
+
+
+.top{
+	width: 100%;
+	height: 27px;
+	background: url(../images/myphoto/top_bg.jpg) repeat-x;
+}
+
+.top_content {
+	margin: 0 auto;
+	width: 1200px;
+	line-height: 27px;
+}
+.top_left{
+	width: 500px;
+	margin: 0 20px 10px;
+	float: left;
+}
+
+.top_right{
+	width: 500px;
+	margin: 0 auto;
+	float: right;
+}
+
+.top_left li{
+	list-style: none;
+	width: 70px;
+	line-height: 27px;
+	margin-left: 20px;
+	float: left;
+}
+
+.top_right li{
+	list-style-image: url(../images/myphoto/li_bg.gif);
+	width: 70px;
+	line-height: 27px;/*让文本垂直居中，像素等于外面一层div的像素高度*/
+	float: right;
+}
+
+.top_right>ul li:nth-child(6){
+	list-style-image: url(../images/site/newshopcar.png);
+}
+
+.top_right>ul li:nth-child(4){
+	list-style-image: url(../images/site/phone.png);
+}
+
+.top_right>ul li:nth-child(1){
+	list-style-image: url(../images/site/daohang.png);
+}
+
+.top_left a:link,.top_left a:visited { /*定义超链接的初始状态和访问后的状态*/
+	color: #8E8E8E;
+	text-decoration:none;/*去超链接的下划线*/
+}
+
+.top_right a:link,.top_right a:visited {
+	color: #8E8E8E;
+	text-decoration:none;
+}
+
+/*定义超链接在鼠标悬浮和点击状态*/
+.top_left a:hover,.top_left a:active {
+	color: #900;
+	text-decoration:none;
+}
+
+.top_right a:hover,.top_right a:active {
+	color: #900;
+	text-decoration:none;
+}
+
+.wrap {
+	width: 100%;
+	margin: 0 auto;
+	background-color: #FFFFFF;
+	overflow: hidden;
+}
+
+.logo_left {
+	width: 300px;
+	/*border-color: red;*/
+	float: left;
+}
+
+.logo_right {
+	width: 950px;
+	float: right;
+}
+
+.logo_right input {
+	width: 550px;
+	height: 45px;
+	padding-left: 20px;
+	border: 2px solid;
+	margin-top: 50px;
+	/*margin-left: 50px;*/
+	float: left;
+}
+
+.sousuoButton {
+	width: 120px;
+	height: 45px;
+	border: 3px solid;
+ 	border-color: red;
+ 	margin-top: 50px;
+	/*margin-left: 450px;*/
+	float: left;
+}
+
+.sousuo img {
+	width: 260px;
+	height: 80px;
+	padding-left: 80px;
+	float: left;
+}
+
+.sousuoButton p {
+	margin: 0 auto;
+	font-size: 2em;
+	font-family: 微软雅黑;
+	text-align: center;
+}
+
+.daohang {
+
+	float: left;
+}
+
+.daohang ul li {
+	width: 50px;
+	line-height: ;
+	/*margin-left: 200px;*/
+	padding-left: 50px;
+	float: left;
+
+}
+
+.second_top {
+	width: 100%;
+	/*height: 27px;*/
+	overflow: hidden;
+}
+
+.dinwei {
+	width: 400px;
+	/*border: 1px solid;*/
+	margin: 0 auto;
+}
+
+.dinwei img {
+	float: left;
+}
+
+.dinwei p {
+	font-family: 微软雅黑;
+	font-size: 1.5em;
+	float: left;
+}
+
+.second_content {
+	width: 100%;
+	height: 800px;
+	border: 1px solid;
+	/*overflow: hidden;*/
+	border-color: red;
+}
+
+.first_row {
+	width: 1000px;
+	margin:0px auto;
+	overflow: hidden;
+}
+
+.second_row {
+	width: 1000px;
+	margin: 0px auto;
+	margin-top: 10px;
+}
+
+.first_row div {
+	width: 180px;
+	height: 200px;
+	border: 1px solid;
+	
+	margin-left: 20px;
+	float: left;
+
+}
+
+.second_row div {
+	width: 310px;
+	height: 200px;
+	border: 1px solid;
+	
+	margin-left: 20px;
+	float: left;
+}
