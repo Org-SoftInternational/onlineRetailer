@@ -15,7 +15,7 @@
 	<context:property-placeholder location="classpath:jdbc.properties"/>
 	<context:property-placeholder location="classpath:log4j.properties"/>
 
-	<!-- 数据库连接池 --> 
+	<!-- 数据库连接池 -->                 
   	<bean id = "dataSource" class = "com.alibaba.druid.pool.DruidDataSource" init-method="init" destroy-method = "close" >    
        <property name = "url" value = "${jdbcUrl}" />
        <property name = "username" value = "${jdbcUsername}" />

@@ -1,5 +1,5 @@
-var app = angular.module('onlineLogin', []);
-app.controller('loginCtrl', function($scope, $http) {
+var app = angular.module('onlineRegister', []);
+app.controller('RegisterCtrl', function($scope, $http) {
 	$scope.register = function() {
 		$http({
 			method: 'POST',
@@ -12,7 +12,9 @@ app.controller('loginCtrl', function($scope, $http) {
 					address: $scope.address
 			}
 		}).then(function successCallback(response) {
+			 alert(response);
 			}, function errorCallback(response) {
+			    console.log('失败');
 		});
 	}
 });
