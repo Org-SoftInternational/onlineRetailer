@@ -4,29 +4,35 @@
 	<meta charset="UTF-8">
 	<title>TianMao</title>
 <link rel="stylesheet" type="text/css" href="css/main.css"/>
-<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css"/>
-<script type="text/javascript" src="js/jquery-1.12.3.min.js"></script>
-<script type="text/javascript" src="js/bootstrap.min.js"></script>
-<script type="text/javascript" src="js/angular.js"></script>
-<!-- <script type="text/javascript" src="js/main.js"></script> -->
+<script type="text/javascript" src="js/util/jquery-1.12.3.min.js"></script>
+<script type="text/javascript" src="js/util/angular.js"></script>
+<script type="text/javascript" src="js/myfocus-2.0.1.min.js" ></script>
+<script type="text/javascript" src="js/mF_YSlider.js" ></script>
+<link rel="stylesheet" href="css/mF_YSlider.css" />
+<script type="text/javascript">
+	myFocus.set({
+		id:"focusBox"
+	});
+	
+</script>
 </head>
 
 <body>
 
 <div id="Javascript.Div1" class="fixed_div">
 	<div class="sidebar">
-			<div class="sidebar_mao"><a href=""><img src="images/site/mao.png"/></a></div>
-			<div class="sidebar_che"><a href=""><img src="images/site/che.png"/><p>购物车</p></a></div>
-			<div class="sidebar_xin"><a href=""><img src="images/site/xin.png"/></a></div>
-			<div class="sidebar_yuan"><a href=""><img src="images/site/yuan.png"/></a></div>
-			<div class="sidebar_cong"><a href=""><img src="images/site/cong.png"/></a></div>
-			<div class="sidebar_zhong"><a href=""><img src="images/site/zhong.png"/></a></div>
-			<div class="sidebar_bi"><a href=""><img src="images/site/bi.png"/></a></div>
-			<div class="sidebar_erweima"><a href=""><img src="images/site/erweima.png"/></a></div>
-			<div class="sidebar_top"><a href=""><img src="images/site/top.png"/></a></div>
+			<div class="sidebar_mao"><a href=""><img src="image/site/mao.png"/></a></div>
+			<div class="sidebar_che"><a href=""><img src="image/site/che.png"/><p>购物车</p></a></div>
+			<div class="sidebar_xin"><a href=""><img src="image/site/xin.png"/></a></div>
+			<div class="sidebar_yuan"><a href=""><img src="image/site/yuan.png"/></a></div>
+			<div class="sidebar_cong"><a href=""><img src="image/site/cong.png"/></a></div>
+			<div class="sidebar_zhong"><a href=""><img src="image/site/zhong.png"/></a></div>
+			<div class="sidebar_bi"><a href=""><img src="image/site/bi.png"/></a></div>
+			<div class="sidebar_erweima"><a href=""><img src="image/site/erweima.png"/></a></div>
+			<div class="sidebar_top"><a href=""><img src="image/site/top.png"/></a></div>
 			
 	</div>
-</div>
+</div><!--侧边导航栏-->
 
 <div class="top">
 	<div class="top_content">
@@ -51,62 +57,85 @@
     
 </div><!-- --top结束-- -->
 
-
 <div class="wrap">
 	<div class="logo_content">
+		
 		<div class="logo_left">
-			<img src="images/site/logo.gif"/>
+			<img src="image/site/logo.gif"/>
 		</div><!-- 天猫Logo -->
+		
 		<div class="logo_right">
-			<form action="" method="post">
-			<input type="text" name="" style="color: #FF0036"/>
-			</form>
-			<div class="sousuoButton" style="color:#FFFFFF;background-color: #FF0036"><p>搜索</p></div>
-			<img src="images/site/coffee.png"/>
+			<div class="input-group">
+				<input type="text" class="form-control" style="font-size:15px ;" placeholder="搜索天猫商品/品牌/店铺"/>
+				<div class="seacher_btn"><p>搜索</p></div>
+				<div class="quickly_sercher">
+					<ul>
+						<li><a href="" style="color: red;">针织衫&nbsp;|</a></li>
+						<li><a href="">羽绒服&nbsp;|</a></li>
+						<li><a href="">四件套&nbsp;|</a></li>
+						<li><a href="" style="color: red;">天猫精灵&nbsp;|</a></li>
+						<li><a href="">客厅灯&nbsp;|</a></li>
+						<li><a href="">口红&nbsp;|</a></li>
+						<li><a href="" style="color: red;">手机&nbsp;|</a></li>
+						<li><a href="">女鞋&nbsp;|</a></li>
+						<li><a href="" style="color: red;">牛奶</a></li>
+					</ul>
+				</div>
+			</div>	
+			
+			<!--<img src="image/site/coffee.png"/>-->
 		</div><!-- 搜索框 -->
+		<!--<div class="sort_left">
+			<div class="sort_left_service"><p class="p_sort">商品服务分类</p></div>
+		</div>-->
+		<div class="sort_middle_list">
+			<div class="sort_middle_content">
+				<ul>
+					<li><a href="">尚天猫</a></li>
+					<li><a href="">喵鲜生</a></li>
+					<li><a href="">天猫会员</a></li>
+					<li><a href="">电器城</a></li>
+					<li><a href="">天猫超市</a></li>
+					<li><a href="">医药馆</a></li>
+					<li><a href="">天猫国际</a></li>
+			    	<li><a href="">天猫汽车</a></li>
+				</ul>
+			</div>					
+		</div>
+				
 	</div>
 
 </div><!-- 主页头部 -->
 
+<div id="focusBox" class="focusPage">
+	<div class="pic">
+		<ul>
+			<li><img src="../../../target/classes/image/site/1.jpg"></img></li>
+			<li><img src="../../../target/classes/image/site/2.jpg"></img></li>
+			<li><img src="../../../target/classes/image/site/3.jpg"></img></li>
+			<li><img src="../../../target/classes/image/site/4.jpg"></img></li>
+			<li><img src="../../../target/classes/image/site/5.jpg"></img></li>
+		</ul>
+	</div>
+	<div class="product_list">
+		<table border="" cellspacing="" cellpadding="">
+			<!--<tr><th>Header</th></tr>-->
+			<tr><td><img src="image/productListImg/1.pn"/>女装/内衣</td></tr>
+			<tr><td><img src="image/productListImg/2.png"/>男装/运动户外</td></tr>
+			<tr><td><img src="image/productListImg/1.pn"/>女鞋 /男鞋/箱包</td></tr>
+			<tr><td><img src="image/productListImg/3.png"/>美妆/个人护理</td></tr>
+			<tr><td><img src="image/productListImg/4.png"/>腕表/眼镜/珠宝首饰</td></tr>
+			<tr><td><img src="image/productListImg/7.png"/>手机数码/电脑办公</td></tr>
+			<tr><td><img src="image/productListImg/8.png"/>母婴玩具</td></tr>
+		</table>
+		
+	</div>
+</div><!--焦点图-->
 
-<div id="myCarousel" class="carousel slide">
-    <!-- 轮播（Carousel）指标 -->
-    <ol class="carousel-indicators">
-        <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-        <li data-target="#myCarousel" data-slide-to="1"></li>
-        <li data-target="#myCarousel" data-slide-to="2"></li>
-   		<li data-target="#myCarousel" data-slide-to="3"></li>
-        <li data-target="#myCarousel" data-slide-to="4"></li>
-    </ol>   
-    <!-- 轮播（Carousel）项目 -->
-    <div class="carousel-inner">
-        <div class="item active">
-            <img src="images/site/1.jpg" alt="First slide" data-interval="true" data-pause="true">
-        </div>
-        <div class="item">
-            <img src="images/site/2.jpg" alt="Second slide" data-interval="true" data-pause="true">
-        </div>
-        <div class="item">
-            <img src="images/site/3.jpg" alt="Third slide" data-interval="true" data-pause="true">
-        </div>
-        <div class="item">
-            <img src="images/site/4.jpg" alt="Third slide" data-interval="true" data-pause="true">
-        </div>
-        <div class="item">
-            <img src="images/site/5.jpg" alt="Third slide" data-interval="true" data-pause="true">
-        </div>
-    </div>
-    <!-- 轮播（Carousel）导航 -->
-    <a class="carousel-control left" href="#myCarousel" 
-        data-slide="prev">&lsaquo;
-    </a>
-    <a class="carousel-control right" href="#myCarousel" 
-        data-slide="next">&rsaquo;
-    </a>
-</div><!-- 图片的轮询 -->
+
 <div class="second_top">
 	<div class="dinwei">
-		<img src="images/site/dinwei.png">
+		<img src="image/site/dinwei.png">
 		<p style="color:red">你的专属活动</p>
 	</div>
 </div><!-- 第一版和第二版图片过度 -->

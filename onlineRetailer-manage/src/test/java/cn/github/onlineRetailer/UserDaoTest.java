@@ -11,11 +11,7 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import cn.github.onlineRetailer.dao.UserDao;
 import cn.github.onlineRetailer.entity.User;
 
-/**
- * @Description
- * @author disanmeng
- * @date 2017年11月15日 上午11:52:11
- */
+
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration({ "classpath:spring-dao.xml" })
@@ -36,4 +32,9 @@ public class UserDaoTest {
         log.error(user);
     }
 
+    @Test
+    public void getUser(){
+    	User user=userDao.getUser("yangyu", "123");
+		log.info(user);
+    }
 }
