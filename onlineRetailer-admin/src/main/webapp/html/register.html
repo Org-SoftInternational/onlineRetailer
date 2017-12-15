@@ -13,7 +13,7 @@
 	<div style="width:300px;text-align:center;margin:0 auto">
 	   <h1 style="text-align:center">注册用户</h1>
 		<div class="input-group">
-			<span class="input-group-addon" >用户名</span> <input
+			<span class="input-group-addon" ng-cilck="redis()">用户名</span> <input
 				type="text" class="form-control" placeholder="Username" ng-model="name" aria-describedby="basic-addon1">
 		</div>
 		<br/>
@@ -36,7 +36,10 @@
 		<br/>
 	   <div style="text-align:center"><button type="button" class="btn btn-success"ng-click="register()">注册</button></div>
 	   <br/>
-	   <div style="text-align:center"><input type="text" ng-model="result" /></div>
+	  <!-- 测试redis --> 
+	   <br/> <br/> <br/>
+	    <div style="text-align:center"><button type="button" class="btn btn-success"ng-click="redis()">redis</button></div>
+	   
 	</div>
 	
 </body>

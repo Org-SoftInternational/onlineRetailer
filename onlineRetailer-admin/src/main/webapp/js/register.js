@@ -17,4 +17,17 @@ app.controller('RegisterCtrl', function($scope, $http) {
 			    console.log('失败');
 		});
 	}
+	
+	$scope.redis = function() {
+		$http({
+			method: 'POST',
+		    url: '/onlineRetailer-admin/onlineRetailer/findset.action',
+		    data: {
+					
+			}
+		}).then(function successCallback(response) {
+			}, function errorCallback(response) {
+			    console.log('失败');
+		});
+	}
 });

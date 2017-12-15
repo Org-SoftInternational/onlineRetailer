@@ -7,4 +7,6 @@ public interface UserService {
 	void AddUser(User user);
 	
 	User getUser(String name,String password);
+	
+	String findSet();
 }
