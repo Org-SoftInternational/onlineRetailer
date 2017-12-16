@@ -1,5 +1,5 @@
-var app = angular.module('onlineLogin', []);
-app.controller('loginCtrl', function($scope, $http) {
+var app = angular.module('onlineRegister', []);
+app.controller('RegisterCtrl', function($scope, $http) {
 	$scope.register = function() {
 		$http({
 			method: 'POST',
@@ -12,7 +12,22 @@ app.controller('loginCtrl', function($scope, $http) {
 					address: $scope.address
 			}
 		}).then(function successCallback(response) {
+			 alert(response);
 			}, function errorCallback(response) {
+			    console.log('失败');
+		});
+	}
+	
+	$scope.redis = function() {
+		$http({
+			method: 'POST',
+		    url: '/onlineRetailer-admin/onlineRetailer/findset.action',
+		    data: {
+					
+			}
+		}).then(function successCallback(response) {
+			}, function errorCallback(response) {
+			    console.log('失败');
 		});
 	}
 });
