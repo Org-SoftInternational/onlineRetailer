@@ -1,5 +1,7 @@
 package cn.github.onlineRetailer.dao;
 
+import java.util.List;
+
 import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Repository;
 
@@ -20,5 +22,17 @@ public interface UserDao {
 //    public int deleteUserById(String id);
     
 //    public int updateUser(User user);
+
+ 	int addtUser(User user);
+    
+    int deleteUserById(Integer userId);
+    
+    int deleteUserBySelected(Integer[] userId);
+    
+    List<User> userList();
+    
+    User getUserById(Integer userId);
+    
+    int updateUserById(User user);
 
 }

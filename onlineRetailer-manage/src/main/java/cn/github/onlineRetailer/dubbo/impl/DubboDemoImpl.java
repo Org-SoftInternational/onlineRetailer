@@ -14,7 +14,7 @@ public class DubboDemoImpl implements DubboDemoService {
 
     public User getUser(String name, String password) {
         if ("yang".equals(name) && "123".equals(password)) {
-            return new User("yang", "123", "18351451741@163.com", "", "", "");
+//            return new User("yang", "123", "18351451741@163.com", "", "", "");
         }
         return null;
     }
