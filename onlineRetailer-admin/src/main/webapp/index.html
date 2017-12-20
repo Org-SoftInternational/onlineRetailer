@@ -9,6 +9,7 @@
 <script type="text/javascript" src="js/myfocus-2.0.1.min.js" ></script>
 <script type="text/javascript" src="js/mF_YSlider.js" ></script>
 <link rel="stylesheet" href="css/mF_YSlider.css" />
+<script type="text/javascript" src="js/main.js"></script>
 <script type="text/javascript">
 	myFocus.set({
 		id:"focusBox"
@@ -17,12 +18,12 @@
 </script>
 </head>
 
-<body>
+<body ng-app="mainpage" ng-controller="mainpageCtrl">
 
 <div id="Javascript.Div1" class="fixed_div">
 	<div class="sidebar">
 			<div class="sidebar_mao"><a href=""><img src="image/site/mao.png"/></a></div>
-			<div class="sidebar_che"><a href=""><img src="image/site/che.png"/><p>购物车</p></a></div>
+			<div class="sidebar_che"><a href=""><img src="image/site/che.png"/><p style="color: white;font-size: 14px;">购物车</p></a></div>
 			<div class="sidebar_xin"><a href=""><img src="image/site/xin.png"/></a></div>
 			<div class="sidebar_yuan"><a href=""><img src="image/site/yuan.png"/></a></div>
 			<div class="sidebar_cong"><a href=""><img src="image/site/cong.png"/></a></div>
@@ -61,35 +62,43 @@
 	<div class="logo_content">
 		
 		<div class="logo_left">
-			<img src="image/site/logo.gif"/>
+			<div class="tianmaowenzhi"><img src="image/site/wenzhilogo.png"/></div>
+			
 		</div><!-- 天猫Logo -->
 		
 		<div class="logo_right">
 			<div class="input-group">
-				<input type="text" class="form-control" style="font-size:15px ;" placeholder="搜索天猫商品/品牌/店铺"/>
-				<div class="seacher_btn"><p>搜索</p></div>
+				<input type="text"  ng-model="searchCondition" name="searchCondition" class="form-control" style="font-size:15px ;" placeholder="搜索天猫商品/品牌/店铺"/>
+				<div class="seacher_btn" ng-click="querryByinput()"><p>搜索</p></div>
 				<div class="quickly_sercher">
 					<ul>
 						<li><a href="" style="color: red;">针织衫&nbsp;|</a></li>
-						<li><a href="">羽绒服&nbsp;|</a></li>
-						<li><a href="">四件套&nbsp;|</a></li>
+						<li><a href="" style="color: darkgrey;">羽绒服&nbsp;|</a></li>
+						<li><a href="" style="color: darkgrey;">四件套&nbsp;|</a></li>
 						<li><a href="" style="color: red;">天猫精灵&nbsp;|</a></li>
-						<li><a href="">客厅灯&nbsp;|</a></li>
-						<li><a href="">口红&nbsp;|</a></li>
+						<li><a href="" style="color: darkgrey;">客厅灯&nbsp;|</a></li>
+						<li><a href="" style="color: darkgrey;">口红&nbsp;|</a></li>
 						<li><a href="" style="color: red;">手机&nbsp;|</a></li>
-						<li><a href="">女鞋&nbsp;|</a></li>
+						<li><a href="" style="color: darkgrey;">女鞋&nbsp;|</a></li>
 						<li><a href="" style="color: red;">牛奶</a></li>
 					</ul>
 				</div>
 			</div>	
-			
 			<!--<img src="image/site/coffee.png"/>-->
 		</div><!-- 搜索框 -->
 		<!--<div class="sort_left">
 			<div class="sort_left_service"><p class="p_sort">商品服务分类</p></div>
 		</div>-->
 		<div class="sort_middle_list">
+			<div class="productlist_top">
+				<div class="cateye"><img src="../../../target/classes/image/site/cateye.png"></img></div>
+				<div class="shangpinliebiao">
+					<img src="image/site/wenzhishangpinliebiao.png"/>
+					<p>商品列表</p>
+				</div>
+			</div>
 			<div class="sort_middle_content">
+				<img src="image/site/tmchaoshiandguoji.png"/>
 				<ul>
 					<li><a href="">尚天猫</a></li>
 					<li><a href="">喵鲜生</a></li>
@@ -107,6 +116,7 @@
 
 </div><!-- 主页头部 -->
 
+
 <div id="focusBox" class="focusPage">
 	<div class="pic">
 		<ul>
@@ -118,18 +128,51 @@
 		</ul>
 	</div>
 	<div class="product_list">
-		<table border="" cellspacing="" cellpadding="">
-			<!--<tr><th>Header</th></tr>-->
-			<tr><td><img src="image/productListImg/1.pn"/>女装/内衣</td></tr>
-			<tr><td><img src="image/productListImg/2.png"/>男装/运动户外</td></tr>
-			<tr><td><img src="image/productListImg/1.pn"/>女鞋 /男鞋/箱包</td></tr>
-			<tr><td><img src="image/productListImg/3.png"/>美妆/个人护理</td></tr>
-			<tr><td><img src="image/productListImg/4.png"/>腕表/眼镜/珠宝首饰</td></tr>
-			<tr><td><img src="image/productListImg/7.png"/>手机数码/电脑办公</td></tr>
-			<tr><td><img src="image/productListImg/8.png"/>母婴玩具</td></tr>
-		</table>
-		
+		<div class="product_list_left">
+			<table class="product_table" id="" style="">
+				<tr><td ng-model="listFirst" ng-mouseover="display()"><img src="image/productListImg/女装内衣.png"/>女装/内衣</td></tr>
+				<tr><td ng-model="listSecond"><img src="image/productListImg/男装.png"/>男装/运动户外</td></tr>
+				<tr><td ng-model="listThird"><img src="image/productListImg/男女鞋.png"/>女鞋 /男鞋/箱包</td></tr>
+				<tr><td ng-model="listForth"><img src="image/productListImg/美妆 .png"/>美妆/个人护理</td></tr>
+				<tr><td ng-model="listFifth"><img src="image/productListImg/珠宝首饰.png"/>腕表/眼镜/珠宝首饰</td></tr>
+				<tr><td ng-model="listSixth"><img src="image/productListImg/手机.png"/>手机数码/电脑办公</td></tr>
+				<tr><td ><img src="image/productListImg/家具建材.png"/>家装家居</td></tr>
+				<tr><td ><img src="image/productListImg/母婴玩具.png"/>母婴玩具</td></tr>
+				<tr><td ><img src="image/productListImg/零食.png"/>休闲娱乐</td></tr>
+				<tr><td ><img src="image/productListImg/大家电.png"/>养生/健康</td></tr>
+				<tr><td ><img src="image/productListImg/汽车.png"/>汽车/汽车配件</td></tr>
+				<tr><td ><img src="image/productListImg/生鲜水果.png"/>生鲜/水果</td></tr>
+				<tr><td ><img src="image/productListImg/零食.png"/>香车美女</td></tr>
+				<tr><td><img src="image/productListImg/零食.png"/>艾玛/护理</td></tr>
+				<tr><td><img src="image/productListImg/零食.png"/>面膜/香水</td></tr>
+			</table>
+		</div>
+		<div class="product_hidden_table" id="hidden_table" ng-show="showFlag">
+			<table class="product_detail">
+				<tr><td colspan="2" rowspan="2">当季流行&nbsp></td><td>当季新品</td><td>时尚潮流</td><td>毛呢大衣</td><td>连体裙装</td><td>针织衫</td><td>安全裤</td></tr>
+				<tr><td>Data</td><td>Data</td><td>运动文胸</td><td>裤子</td><td>紧身衣</td><td>紧身裤</td></tr>
+				<tr><td colspan="2" rowspan="2">精选上装&nbsp></td><td>大风衣</td><td>皮毛一体</td><td>羽绒服</td><td>小西装</td><td>短外套</td><td>T恤</td></tr>
+				<tr><td>Data</td><td>Data</td><td>连衣裙</td><td>半身裙</td><td>A字裙</td><td>大摆裙</td></tr>
+				<tr><td colspan="2" rowspan="2">浪漫裙装&nbsp></td><td>包臀裙</td><td>Data</td><td>Data</td><td>Data</td><td>Data</td><td>Data</td></tr>
+				<tr><td>Data</td><td>Data</td><td>Data</td><td>Data</td><td>Data</td><td>Data</td></tr>
+				<tr><td colspan="2" rowspan="2">女士下装&nbsp></td><td>Data</td><td>Data</td><td>Data</td><td>Data</td><td>Data</td><td>Data</td></tr>
+				<tr><td>Data</td><td>Data</td><td>Data</td><td>Data</td><td>Data</td><td>Data</td></tr>
+				<tr><td colspan="2" rowspan="2">特色女装&nbsp></td><td>Data</td><td>Data</td><td>Data</td><td>Data</td><td>Data</td><td>Data</td></tr>
+				<tr><td>Data</td><td>Data</td><td>Data</td><td>Data</td><td>Data</td><td>Data</td></tr>
+			</table>
+			<table class="shop_logo">
+				<tr><td><img src="image/productListImg/优衣库.png"></img></td><td><img src="image/productListImg/levis.png"></img></td></tr>
+				<tr><td style="font-family: 'bodoni mt black';font-size: 30px;">GXG</td><td><img src="image/productListImg/face.png"/></td></tr>
+				<tr><td><img src="image/productListImg/李宁.png"/></td><td style="font-family: 'calisto mt';font-size: 25px;">太平鸟</td></tr>
+				<tr><td><img src="image/productListImg/colunbia.png"/></td><td><img src="image/productListImg/特步.png"/></td></tr>
+				<tr><td><img src="image/productListImg/骆驼.png"/></td><td><img src="image/productListImg/miow.png"/></td></tr>
+				<tr><td>Data</td><td>Data</td></tr>
+				<tr><td>Data</td><td>Data</td></tr>
+				
+			</table>
+		</div>
 	</div>
+	
 </div><!--焦点图-->
 
 
