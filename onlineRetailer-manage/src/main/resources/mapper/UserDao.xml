@@ -9,5 +9,7 @@
 		user(id, name, password, email, phone, address) 
 		values(#{id}, #{name}, #{password}, #{email}, #{phone}, #{address});
 	</insert>
-	
+	<select id="getUser" resultType="User">
+		select id, name, password, email, phone, address from user where name=#{name} and password=#{password};
+	</select>
 </mapper>

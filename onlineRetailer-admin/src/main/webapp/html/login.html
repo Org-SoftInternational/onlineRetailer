@@ -1,21 +1,70 @@
 <!DOCTYPE html>
-<html>
+<html lang="en" >
 <head>
-<title>onlineRetailer登陆</title>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<script src="../js/angular.js"></script>
-<script src="../js/login.js"></script>
+    <meta charset="UTF-8">
+	<title>onlineRetailer登陆</title>
+    <link rel="stylesheet" href="../css/bootstrap.min.css">
+    <link rel="stylesheet" href="../css/Font-Awesome/css/font-awesome.min.css">
+    <script type="text/javascript" src="../js/util/angular.min.js"></script>
+    <script type="text/javascript" src="../js/login.js"></script>
+    <style>
+        body{margin: 10px}
+        input.error{border: 1px solid #d2322d}
+        i.input-result{
+            position: relative;
+            top:-45px;
+            left:270px;
+            color: green;
+        }
+    </style>
 </head>
-<body ng-app="onlineLogin" ng-controller="loginCtrl">
-	<div>
-	   <h1 style="text-align:center">Login</h1>
-	   <div style="text-align:center">name:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type="text" ng-model="name" /></div>
-	   <div style="text-align:center">password: <input type="text" ng-model="password" /></div>
-	   <br/>
-	   <div style="text-align:center"><button ng-click="login()">登陆</button></div>
-	   <br/>
-	   <div style="text-align:center"><input type="text" ng-model="result" /></div>
-	</div>
-	
+<body ng-app="myApp" ng-controller="loginController" style="background:url(../image/login.png)">
+    	 <h1 style="text-align:center">用户登录</h1>
+        <form name="loginForm" ng-submit="submitForm()" style="width:300px;text-align:center;margin:20px auto">
+           <div class="form-group">
+               <div class="input-group">
+			    <span class="input-group-addon" >用户名</span>
+                <input type="text"
+                       name="username"
+                       class="form-control"
+                       ng-model="username"
+                       placeholder="Username" 
+                       required
+                       ng-minlength="4"
+                       ng-maxlength="20" /> </div><br/>
+                <i class="icon-ok input-result"
+                   ng-if="loginForm.username.$valid"></i>
+                <p class="alert alert-danger"
+                   ng-if="loginForm.username.$error.required&&
+                   loginForm.username.$touched">用户名不能为空</p>
+                <p class="alert alert-danger"
+                   ng-if="(loginForm.username.$error.minlength||
+                   loginForm.username.$error.maxlength )&&
+                   loginForm.username.$touched">用户名长度不合法</p>
+            </div>
+            <div class="form-group" >
+                <div class="input-group">
+			    <span class="input-group-addon" >&nbsp;密码&nbsp;&nbsp;</span> 
+                <input type="password" name="password" class="form-control"
+                       required
+                       placeholder="Password" 
+                       ng-minlength="6"
+                       ng-maxlength="25"
+                       ng-model="password"/></div> </br>
+                <i class="icon-ok input-result"
+                   ng-if="loginForm.password.$valid"></i>
+                <p class="alert alert-danger"
+                   ng-if="loginForm.password.$error.required&&
+                   loginForm.password.$touched">密码不能为空</p>
+                <p class="alert alert-danger"
+                   ng-if="(loginForm.password.$error.minlength||
+                   loginForm.password.$error.maxlength )&&
+                   loginForm.password.$touched">密码长度不合法</p>
+            
+             <div class="form-group" style="width:300px;text-align:center;"  > 
+               <button type="submit" class="btn btn-primary">&nbsp;&nbsp;&nbsp;&nbsp;登录&nbsp;&nbsp;&nbsp;&nbsp;</button>
+            </div>
+        </form>
+    </div>
 </body>
 </html>
