@@ -39,6 +39,7 @@ public class LoginContoller {
 			res.setReturnCode("200");
 		}
 		res.setUser(user);
+		
 		return res;
 	}
 
@@ -47,6 +48,14 @@ public class LoginContoller {
 	public String register(@RequestBody User user) throws Exception {
 		userService.AddUser(user);
 		log.info(user);
+		
 		return "ok";
+	}
+	//redis樣例
+	@RequestMapping(value = "/findset")
+	@ResponseBody
+	public String findset() throws Exception {
+
+		return userService.findSet();
 	}
 }
