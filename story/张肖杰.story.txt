@@ -1,0 +1,48 @@
+一、功能开发背景
+
+    该项目主要是模仿天猫SSM项目而开发的电商项目，此次迭代主要开发功能用户登录、商品列表首页
+以及商品模糊查询功能。
+
+二、功能需求分析及功能实现分析
+    1、负责用户登录、商品展示相关表结构的设计
+       a、用户登录涉及表（user表）
+          id         用户ID         int              11
+          name       用户名         varchar          50
+          password   密码           varchar          50
+          phone      联系方式       varchar          33
+          address    地址           varchar          100
+          email      E-mail         varchar          50
+       b、商品展示和模糊查询 涉及表（商品分类表 category）、（商品表 product）
+
+          商品分类表 category ：
+          id                  ID                      int                   11
+          productType         商品类型                varchar               50
+
+          商品表 product ：
+          id                  商品ID                  int                   11
+          productName         商品名称                varchar               50
+          cParentId           类别父ID                int                   11
+          originalPrice       原价                    float                 10
+          promotePrice        促销价                  float                 10
+          createTime          创建时间                dateTime
+          deleteTime          删除时间                dateTime
+          modifyTime          修改时间(主要是调整价位)dateTime
+          remark              商品描述                varchar               100
+          stock               库存                    int                   11
+    
+    2、用户登录接口、商品分类列表接口、商品查询接口设计及开发
+       
+       用户登录相关接口：1、int insertUser(User user);2、int deleteUserById(Integer userId);3、int deleteUserBySelected(Integer[] userId);4、List<User> userList();
+                         5、 User getUserById(Integer userId);6、int updateUserById(User user) 
+    
+       商品分类相关接口：1、List<Category> categoryList();2、int insertCategory(Category category);3、int deleteCategoryById(Integer categoryId);
+                         4、int deleteCatagoryBySelected(Integer[] categoryId);5、int updateCategoryById(Category category);
+
+       查询商品相关接口：1、Product getProductById(Integer productId);2、List<Product> getProductByCategory(Integer categoryId);
+                         3、int InsertProductByCategory(Product product);4、int deleteProductByCategory(Integer categoryId);
+                         5、int deleteProductById(Integer productId);6、int updateProductById(Product product);
+
+三、自测和测试建议       
+    1、用户登录及注册：
+       a.用户名输入不对时，光标停在用户名栏位，加报错提示，再者密码。。。
+       b.是否可以注册相同的用户名。。  
