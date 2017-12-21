@@ -35,7 +35,7 @@ public class UserServiceImpl implements UserService{
 	@Override
 	public void addUser(User user) {
 		try {
-			userDao.insertUser(user);
+			userDao.addtUser(user);
 		} catch(Exception e){
 			logger.info("��������ʧ�ܣ�"+e);
 		}   

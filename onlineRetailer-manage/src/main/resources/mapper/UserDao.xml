@@ -12,4 +12,50 @@
 	<select id="getUser" resultType="User">
 		select id, name, password, email, phone, address from user where name=#{name} and password=#{password};
 	</select>
+	
+	<insert id="addUser" parameterType="User" useGeneratedKeys="true" keyProperty="id">
+		insert into 
+		user(userName, password, phone, address,email) 
+		values (#{userName,jdbcType=VARCHAR},
+	    #{password,jdbcType=VARCHAR},#{phone,jdbcType=VARCHAR}, 
+	    #{address,jdbcType=VARCHAR},#{email,jdbcType=VARCHAR})
+	</insert>
+	
+	<delete id="deleteUserById" >
+	    delete from user where id = #{userId}
+	</delete>
+	
+	<delete id="deleteUserBySelected">
+	    delete from user where id in
+	    <foreach collection="array" open="(" close=")" item="userId" separator=",">
+	         #{userId}
+	    </foreach>
+	</delete>
+	
+	<select id="userList" resultType="User">
+	    select * from user
+	</select>
+	
+	<select id="getUserById" resultType="User">
+	    select * from user where id = #{userId}
+	</select>
+	
+	<update id="updateUserById" parameterType="User">
+	    update user 
+	    <set>
+	        <if test="null != userName">
+	             userName = #{userName},
+	        </if>
+	        <if test="null != password">
+	             password = #{password},
+	        </if>
+	        <if test="null != address">
+	             address = #{address},
+	        </if>
+	        <if test="null != email">
+	             email = #{email}
+	        </if>
+	    </set>
+	    where id = #{userId}
+	</update>	
 </mapper>
