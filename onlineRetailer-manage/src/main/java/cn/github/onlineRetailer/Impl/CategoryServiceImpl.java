@@ -4,8 +4,6 @@ import java.util.List;
 
 import javax.annotation.Resource;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 
 import cn.github.onlineRetailer.dao.CategoryDao;
@@ -19,8 +17,6 @@ public class CategoryServiceImpl implements CategoryService{
 	@Resource
 	private CategoryDao categoryDao;
 	
-	private final static Logger logger = LoggerFactory.getLogger(CategoryServiceImpl.class);
-
 	@Override
 	public List<Category> categoryList() {
 		return categoryDao.categoryList();

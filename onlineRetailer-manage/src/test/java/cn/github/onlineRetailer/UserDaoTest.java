@@ -23,8 +23,8 @@ public class UserDaoTest {
 	private static final Log log = LogFactory.getLog(UserDaoTest.class);
     @Test
     public void insertUserTest() {
-        long id = (long) (Math.random() * 1000000l);
-        User user = new User(Long.toString(id), "yangyu", "123", "1213536402@qq.com", "18351451741", "昆明");
+        int id =  (int) (Math.random() * 10000);
+        User user = new User((int) id, "yangyu", "123", "1213536402@qq.com", "18351451741", "昆明");
         userDao.insertUser(user);
         log.debug(user);
         log.info(user);
