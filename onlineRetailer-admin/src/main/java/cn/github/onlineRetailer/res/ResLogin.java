@@ -1,19 +1,18 @@
 package cn.github.onlineRetailer.res;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
-import lombok.ToString;
 import cn.github.onlineRetailer.DummySuccess;
 import cn.github.onlineRetailer.entity.User;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.EqualsAndHashCode;
+import lombok.NoArgsConstructor;
 
 @Data
-@ToString
 @NoArgsConstructor
 @AllArgsConstructor
+@EqualsAndHashCode(callSuper=false)
 public class ResLogin extends DummySuccess{
 	
-	 private User user;
+    private static final long serialVersionUID = 4592261792660786661L;
+    private User user;
 }
